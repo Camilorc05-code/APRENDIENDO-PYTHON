@@ -22,6 +22,8 @@ my_other_list.append("Colombia")
 
 my_other_list.insert(1, "Azul")
 
+print(my_other_list)
+
 my_other_list.remove("Azul")
 
 print(my_other_list)
