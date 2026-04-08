@@ -30,7 +30,3 @@ my_set = {"Camilo", "Rodriguez", 19}
 my_set = list(my_set)
 print(type(my_set))
 
-my_other_set = {"Camilo", "Rodriguez", 20}
-
-my_new_set = my_set.union(my_other_set)
-print(my_new_set)

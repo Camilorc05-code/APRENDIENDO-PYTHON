@@ -1,12 +1,12 @@
 ### MODULOS ###
 
-import my_module
+import Basic.my_module as my_module
 #from 38_FUNCIONES import sum_two_values #Python no lo reconoce por que tiene un número "38" en el nombre
 
 my_module.suma(5, 3, 1)
 my_module.printValue("Hola Python!")
 
-from my_module import suma, printValue
+from Basic.my_module import suma, printValue
 
 suma(5, 6, 1)
 printValue("Hola Python!")
