@@ -23,3 +23,44 @@ def fizzbuzz():
       print(indice)
 
 fizzbuzz()
+
+"""
+¿ES UN ANAGRAMA?
+Escribe una función que reciba dos palabras (String) y retorne
+verdadero o falso (Bool) según sean o no anagramas.
+-Un Anagrama consiste en formar una palabra reordenando TODAS
+las letras de otra palabra inicial.
+-NO hace falta comprobar que ambas palabras existan.
+-Dos palabras exactamente iguales no son anagrama. 
+"""
+print("¿ES UN ANAGRAMA?\n")
+
+def is_anagrama(word_one, word_two):
+  if word_one.lower() == word_two.lower():
+    return False
+  return sorted(word_one.lower()) == sorted(word_two.lower())
+
+print(is_anagrama("Amor", "Roma"))
+
+"""
+Escribe un programa que imprima los 50 primeros números de la suseción 
+de Fibonacci empezando en 0.
+- La serie Fibonacci se compone por una sucesión de número en
+la que el siguiente siempre es la suma de los dos anteriores.
+"""
+
+def fibonacci():
+
+  prev = 0
+  next = 1
+
+  for index in range(0, 11):
+    print(prev)
+    fib = prev + next
+    prev = next
+    next = fib
+
+fibonacci()
+  
+
+
