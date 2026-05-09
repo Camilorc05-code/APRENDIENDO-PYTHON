@@ -1,6 +1,14 @@
 from fastapi import FastAPI
+from Backend.FastAPI.routers import products, users
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
+
+# Routers
+app.include_router(products.router)
+app.include_router(users.router)
+app.mount("/static", StaticFiles(directory="Backend/FastAPI/static"), name="static")
+
 
 @app.get("/")
 async def root():
