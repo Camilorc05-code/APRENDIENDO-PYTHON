@@ -52,7 +52,7 @@ from functools import reduce
 
 def sum_two_values(first_value, second_value):
     print(first_value)
-    print(second_value)
+    print(second_value) 
     return first_value + second_value 
 
 print(reduce(sum_two_values, numbers))

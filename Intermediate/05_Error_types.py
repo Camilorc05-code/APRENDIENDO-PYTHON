@@ -55,4 +55,4 @@ print(type(my_int))
 
 print(4/2)
 #ZeroDivisionError: division by zero
-#print(4/0) # Descomentar para error
+#print(4/0) # Descomentar para error 

@@ -10,4 +10,3 @@ def sum_three_values(value):
 
 print(sum_three_values(5)(2, 2))
 
-print("Hola")
