@@ -15,7 +15,7 @@ router = APIRouter(prefix="/userdb",
 
 @router.get("/", response_model=list[User])
 async def users():
-    return users_schema(db_cliente.local.users.find())
+    return users_schema(db_cliente.users.find())
 
 # Path
 
@@ -37,9 +37,9 @@ async def user(user: User):
     user_dict = dict(user)
     del user_dict["id"]
  
-    id = db_cliente.local.users.insert_one(user_dict).inserted_id
+    id = db_cliente.users.insert_one(user_dict).inserted_id
 
-    new_user = user_schema(db_cliente.local.users.find_one({"_id":id}))
+    new_user = user_schema(db_cliente.users.find_one({"_id":id}))
 
     return User(**new_user)
 
@@ -50,7 +50,7 @@ async def user(user: User):
     del user_dict["id"]
 
     try:
-        db_cliente.local.users.find_one_and_replace({"_id": ObjectId(user.id)}, user_dict)
+        db_cliente.users.find_one_and_replace({"_id": ObjectId(user.id)}, user_dict)
 
     except:
         return {"Error": "No se ha actualizado el usuario"}\
@@ -60,7 +60,7 @@ async def user(user: User):
 @router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)
 async def user(id: str):
 
-    found = db_cliente.local.users.find_one_and_delete({"_id": ObjectId(id)})
+    found = db_cliente.users.find_one_and_delete({"_id": ObjectId(id)})
 
     if not found:
         return {"Error": "No se ha eliminado el usuario"}
@@ -69,7 +69,7 @@ async def user(id: str):
 def search_user(field: str, key):
 
     try:
-        user = db_cliente.local.users.find_one({field: key})
+        user = db_cliente.users.find_one({field: key})
         return User(**user_schema(user))
     except:
         return {"Error": "No se ha encontrado el usuario"}
